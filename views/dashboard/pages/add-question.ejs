@@ -1,0 +1,65 @@
+<%-include("../../dashboard/patials/header.ejs")%>
+<%-include("../../dashboard/patials/sitebar.ejs")%>
+<div class="user-manager">
+    <h2 class="add-exam">
+        ADD QUESTION
+    </h2>
+         <form class="form-add-exam">
+             <label class="lable-name" for="">Question Name</label>
+             <input class="input-name" id="examName" type="text">
+             <label class="lable-description" for="">Question Description</label>
+             <textarea name="" id="descriptinExam" cols="30" rows="10"></textarea>
+             <label class="lable-name" for="">Exam Option</label>
+             <select name="" class="input-name1" id="">
+                 <option value="">hello</option>
+                 <option value="">hello</option>
+                 <option value="">hello</option>
+                 <option value="">hello</option>
+             </select>
+             <div class="button-submit-add-exam">
+                 <button  class="btn-add">Add</button>
+                 <button class="btn-cancle">Cancle</button>
+             </div>
+         </form>
+</div>
+
+<%-include("../../dashboard/patials/footer.ejs")%>
+<script>
+    $(document).on('click', '.btn-add', function(e){
+        e.preventDefault()
+        let examname = $("#examName").val().trim();
+        let examdescription = $("#descriptinExam").val().trim()
+        if(examname == "" && examdescription == "")
+        {
+            toastr["error"]("Please check your information","Announcement")
+        }else if(examname == "" ){
+            toastr["error"]("Please Check Your Exam Name","Announcement")
+        }else if(examdescription == "" ){
+            toastr["error"]("Please Check Your Examdescription","Announcement")
+        }else{
+            $.ajax({
+                url:'/admin/add-exam',
+                method:'POST',
+                data:{ examname, examdescription },
+                success: resp =>{
+                    console.log(resp.data)
+                    if( resp.data == "can not find"){
+                        toastr["error"]("Can Not Add" , "Announcement")
+                    }else if( resp.data == "exam exist" ){
+                        toastr["error"]("The Exam An Exist" , "Announcement")
+                    }else if(resp.data == "sucess"){
+                        toastr["success"]("Add Successfully" , "Announcement")
+                    }
+
+                }
+            })
+        }
+    })
+    $(document).on('click', '.btn-cancle', function(e){
+        e.preventDefault()
+        let examname = $("#examName").val().trim();
+        let examdescription = $("#descriptinExam").val().trim()
+        examname = "",
+        examdescription = ""
+    })
+</script>

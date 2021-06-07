@@ -1,0 +1,28 @@
+<Footer class="footer">
+    <p class="copy-right">Copyright © 2021 SCC. All rights reserved.</br>
+        Company reg number: 01428210 | VAT reg number: 313651680 | DUNS number: 227720521</p>
+</Footer>
+</div>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+<script src="/assets/toastr.min.js"></script>
+</body>
+</html>
+
+     <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight= header.clientHeight;
+        
+        // Close, open Menu
+        mobileMenu.onclick = function(){
+            var isClosed = header.clientHeight === headerHeight;
+            if(isClosed){
+                header.style.height = 'auto';
+            }
+            else{
+                header.style.height = null;
+            }
+        }
+        // mobile-menu
+    </script>

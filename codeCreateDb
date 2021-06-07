@@ -1,0 +1,47 @@
+/=====================Create Database=========================/
+
+CREATE DATABASE qicktest;
+
+/======================Create Table User==========================/
+
+CREATE TABLE user{
+    userid int NOT NULL,
+    fullname varchar(30),
+    username varchar(20),
+    password varchar(20),
+    PRIMARY KEY (userid)
+    CONSTRAINT user_role FOREIGN KEY (roleid)
+    REFERENCES role(roleid)
+}
+/======================Create Table Exam==========================/
+CREATE TABLE exam{
+    examid int NOT NULL,
+    examname varchar(250),
+    PRIMARY KEY (examid),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID)
+}
+/======================Create Table ExamDetail==========================/
+CREATE TABLE user{
+    detailid int NOT NUL,
+    score int,
+    answertrue int,
+    answerfail int,
+     PRIMARY KEY (detailid)
+}
+/======================Create Table Question==========================/
+CREATE TABLE question{
+    questionid int NOT NUL,
+    content varchar(30),
+     PRIMARY KEY (questionid)
+    
+}
+/======================Create Table Answer==========================/
+CREATE TABLE answer{
+    answerid int NOT NUL,
+    answercontent varchar(250)
+    result boolean
+    PRIMARY KEY (questionid)
+}
+
+/======================Create Relationship Between ==========================/

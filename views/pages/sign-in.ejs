@@ -1,0 +1,63 @@
+<%- include("../patials/header.ejs") %>
+<div class="container">
+    <img src="/image/picture-login.jpg" alt="hihihi" class="image_login"/>
+    <div class="form_singn_in">
+        <form class="form" >
+            <label class="form__lable" for="fname">Username :</label>
+            <input class="username" type="text" id="username" name="fname" placeholder="Input Here"  value=""><br>
+            <label class="form__lable" for="lname">Password :</label>
+            <input class="password" type="password" id="password" name="lname" value=""><br><br>
+            <div class="btn">
+                <button class="btn-sign-In btn-login">Sign In</button>
+            <button class="btn-sign-Up" >Sign Up</button>
+            </div>
+          </form>  
+    </div>
+</div>
+<script>
+    $(document).on('click' ,'.btn-login', function(e){
+    e.preventDefault();
+    let username = $("#username").val().trim();
+    let password = $("#password").val().trim();
+    // console.log({username,password})
+    if(username == '' && password == ''){
+        toastr['error']('Please Check Your Infomation', 'Announcement');
+    } else if(username == ""){
+        toastr['error']('Please Check Your Username', 'Announcement');
+    } else if(password == ""){
+        toastr['error']('Please Check Your Password', 'Announcement');
+    }  else {
+        $.ajax({
+        url:"/users/sign-in",
+        method:"POST",
+        data:{username, password},
+        success: resp =>{
+            console.log(resp.err)
+            if(resp.err == "User not Exist"){
+                toastr['error']("User Not Exist, Please Check Your Email","Anouence");
+            }else if(resp. err == "Wrong Password"){
+                toastr['error']('Wrong Password, Please Check Your Password','Anouence')
+            }else{
+                toastr['success']('Acess Sucessfuly ','Anouence')
+                setTimeout(function(){
+                    window.location.href = "/employees/home"
+                     }, 700);
+            }
+            // if(resp.data == "")
+              
+        }
+    })
+    }
+   
+  
+})
+$(document).on('click' ,'.btn-sign-Up', function(e){
+    e.preventDefault();
+    // console.log("hello")
+    // toastr['error']('Fullnam and Username must not be matched', 'Announcement');
+    window.location.href="/users/sign-up"
+})
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+<script src="/assets/toastr.min.js"></script>
+<!-- <%- include("../patials/footer.ejs") %> -->

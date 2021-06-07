@@ -1,0 +1,185 @@
+/* PC */
+@media (min-width: 64em){
+
+} 
+/*ipad*/
+@media (min-width: 46.25em) and (max-width:63.9375em){
+    
+    .btn-menu{
+        display: none;
+    }
+
+    .game-quiz-container{
+        width:500px;
+        height: 400px;
+    
+    }
+    .top1-nav{
+        display: none;
+    }
+    .btn-menu:hover .top1-nav{
+        display: block;
+        cursor: pointer;
+    }
+    .column{
+        float:left;
+    }
+    .footer{
+        width: 100%;
+        height: 100px;
+    }
+    .left{
+        width: 100%;
+    }
+    .count-dowu-result{
+        color: #d67575
+    }
+    .time-count-downt{
+          
+            margin-top: 7%;
+            width: 89%;
+            border-radius: 10%;
+            
+    }
+    .middle{
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        margin-top: 45px;
+    }
+    .game-quiz-container{
+        margin: 0 auto;
+    }
+    .right{
+        width: 100%;
+    }
+    .right .table{
+        width: 100%;
+        margin-left:auto;
+        margin-right: auto;
+        margin-top: 110px;
+        border-style: groove;
+       
+    }
+    .right .table tr td{
+        background: wheat;
+        text-align: center;
+    }
+    .game-quiz-container {
+        width: 80%;
+    }
+} 
+/* mobile */
+@media (max-width: 46.1875em){
+    .nav{
+        overflow: hidden;
+        width: 100%;
+    }
+    .left{
+        width: 100%;
+        border-radius: 0px;
+    }
+    .heading-logo{
+        width: 100px;
+        height: 46px;
+        margin-left: 5px;
+    }
+    .top-nav{
+        display: none;
+    }
+    .game-options-container span{
+        padding: 16px 41px;
+        margin-bottom: 5px;
+    }
+    .column{
+        height: 87px;
+        float: left;
+        margin-top: 80px;
+    
+        max-width: 100%;
+    }
+    .middle{
+        width: 100%;
+    }
+    .footer{
+        width: 100%;
+        height: 50px;
+        position: relative;
+        margin-bottom: 10px;
+        
+    }
+   .right{
+       width: 100%;
+       margin-top: 182px;
+   }
+   .right .table{
+       margin-left:auto;
+       margin-right: auto;
+       margin-top: 110px;
+   }
+    .game-quiz-container{
+        width: 80%;
+        height: 349px;
+        margin: 0 auto;
+        margin-top: 11px;
+    }
+   
+    .game-options-container{
+        width: 80%;
+        height: 5rem;
+        margin: 7px 7px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+        
+    }
+    .game-options-container span{
+        padding: 10px;
+    }
+    .next-button-container{
+    margin-top: 37px;
+    margin-bottom: 7px;
+    }
+    .game-question-container{
+        margin-bottom: 39px;
+    }
+    /* .time-count-downt{
+        width: 15%;
+        height: 100px;
+    } */
+     .time-count-downt{
+        width: 65%;
+        margin-top: 23px;
+        margin-left: 16%;
+        border-radius: 10%;
+        text-align: center;
+    }
+    .btn-menu{
+        display: block;
+        margin-right: 20px;
+       
+    }
+    /* .hh{
+        display: none;
+    } */
+    /* .btn-menu:hover.top-nav{
+        display: block;
+        
+    } */
+    .table{
+        border-style: groove;
+        border-color: beige;
+        width: 100%;
+    }
+    .table tr td{
+        text-align: center;
+    }
+    .table tr td{
+        background-color: wheat;
+    }
+    .btn-menu:hover .hh{
+        display: block;
+    }
+
+} 

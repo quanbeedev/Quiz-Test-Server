@@ -1,0 +1,10 @@
+:root{
+    --black-color : #000000;
+    --white-color:#ffffff;
+    --text-color :#777777;
+    --text-hover:#F0EBCC;
+    --border-color:#201f1f17;
+    --gradient-color: linear-gradient(90deg,#13172c,#0b3eac 70%);
+    --shadow-color: 0px opx 30px rgba(118,85,335,0.3)
+
+}

@@ -1,0 +1,114 @@
+<%- include("../patials/header.ejs") -%>
+    <!-- End Header -->
+    <div class="image-scc">
+        <img src="" alt="">
+    </div>
+    <!-- Start main -->
+    <div class="Content"> 
+        <div class="row">
+            <div class="column .column-2 left">
+                <div class="time-count-downt">
+                    <p id="demo" class="count-dowu-result"></p>
+                </div>
+            </div>
+            <div class="column middle">
+                <div class="game-quiz-container">
+
+                    <div class="game-details-container">
+                      
+                        <h1> Question : <span id="question-number"></span> / 10</h1>
+                    </div>
+        
+                    <div class="game-question-container">
+                        <h1 id="display-question"> <p>Question 1: This is the question 1</p></h1>
+                    </div>
+        
+                    <div class="game-options-container">
+        
+                       <div class="modal-container" id="option-modal">
+        
+                            <div class="modal-content-container">
+                                 <h1></h1>
+        
+                                 <div class="modal-button-container">
+                                    <button onclick="">Continue</button>
+                                </div>
+        
+                            </div>
+        
+                       </div>
+        
+                        <span>
+                            <input type="radio" id="option-one"  name="option" class="radio" value="optionA" />
+                            <label for="option-one" class="option" id="option-one-label">A Answer</label>
+                        </span>
+        
+        
+                        <span>
+                            <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                            <label for="option-two" class="option" id="option-two-label">B Answer</label>
+                        </span>
+        
+        
+                        <span>
+                            <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                            <label for="option-three" class="option" id="option-three-label">C Answer</label>
+                        </span>
+        
+        
+                        <span>
+                            <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                            <label for="option-four" class="option" id="option-four-label">D Answer</label>
+                        </span>
+        
+        
+                    </div>
+        
+                    <div class="next-button-container">
+                        <button onclick="">Previus</button>
+                        <button class="Next-Question" onclick="">Next Question</button>
+                    </div>
+        
+                </div>
+            </div>
+            <div class="column right">
+               <table class="table">
+                   <tr>
+                       <th>User</th>
+                       <th>Score</th>
+                   </tr>
+                   <tr>
+                        <td> Quan</td>
+                        <td>10</td>
+                   </tr>
+                   <tr>
+                    <td> Quan</td>
+                    <td>10</td>
+               </tr>
+               <tr>
+                <td> Quan</td>
+                <td>10</td>
+           </tr>
+               </table>
+               
+            </div>
+        </div>
+    </div>
+    <script>
+        var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+        var x = setInterval(function() {
+          var now = new Date().getTime();
+          var distance = countDownDate - now;
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+          document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+            
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+        </script>
+    <!-- end Main -->
+    <%- include("../patials/footer.ejs") -%>

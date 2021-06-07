@@ -1,0 +1,68 @@
+<%- include("../patials/header.ejs") %>
+<div class="container">
+    <img src="/image/picture-login.jpg" alt="hihihi" class="image_login"/>
+    <div class="form_singn_in">
+        <form class="form" autocomplete="off"  novalidate>
+            <label class="form__lable" for="fname">Fullname :</label>
+            <input class="username" type="text" id="fullname" name="fname" placeholder="Input Here"  value=""/><br>
+            <label class="form__lable" for="lname">Username :</label>
+            <input class="username" type="text" id="username" name="lname" value=""/><br><br>
+            <label class="form__lable" for="lname">Password :</label>
+            <input class="password" type="password" id="password" name="lname" value=""/><br><br>
+            <div class="btn">
+                <button class="btn-sign-In btn-login">Sign In</button>
+            <button class="btn-sign-Up btn-sign-Up">Sign Up</button>
+            </div>
+        </form>  
+    </div>
+</div>
+<script>
+    $(document).on('click' ,'.btn-login', function(e){
+        e.preventDefault();
+        // console.log("hello")
+        window.location.href="/users/sign-in"
+    })
+    $(document).on('click' ,'.btn-sign-Up', function(e){
+        e.preventDefault();
+        let fullname = $("#fullname").val();
+        let username = $("#username").val().trim()
+        let password = $("#password").val().trim()
+        if( fullname == "" && username == "" && password == ""){
+            toastr['error']('Please Check Information must full','Annouence')
+        } else if( fullname == "") {
+            toastr['error']('Please Check Your Fullname','Annouence')
+        }else if(username == "" ){
+            toastr['error']('Please Check Your Username','Annouence')
+        }else if(password == ""){
+            toastr['error']('Please Check Your Password','Annouence')
+        }else{
+            $.ajax({
+            url : "/users/sign-up",
+            method : "POST",
+            data : {
+                fullname, username, password
+            },
+            success : resp =>{
+                console.log(resp)
+                if(!resp.data){
+                    toastr['error']('Username Exist, Please Try Again Your Username', 'Announcement');
+                }else{
+                    toastr['success']('Create Acount Successfully','Anouance')
+                    setTimeout(function(){
+                        window.location.href = "/users/sign-in"
+                     }, 1000);
+                }
+                
+            },
+        }) 
+       
+        }
+
+        
+        // window.location.href="/users/sign-in"
+    })
+
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+<script src="/assets/toastr.min.js"></script>
+<!-- <%- include("../patials/footer.ejs") %> -->
